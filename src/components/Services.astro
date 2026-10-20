@@ -1,0 +1,103 @@
+---
+const trades = [
+  {
+    name: "Electrical",
+    description: "Safe, code-compliant work from small repairs to full rewiring.",
+    image: "/assets/images/services/electrical.jpg",
+    services: ["Outlets &amp; switches", "Lighting &amp; fixtures", "Panel upgrades", "Fault finding"]
+  },
+  {
+    name: "Plumbing",
+    description: "Hardwood, laminate, vinyl and tile, laid flat and finished clean.",
+    image: "/assets/images/services/plumbing.jpg",
+    services: ["Hardwood &amp; laminate", "Vinyl plank &amp; tile", "Subfloor repair", "Refinishing"]
+  },
+  {
+    name: "Flooring",
+    description: "Leaks, fittings and fixture swaps handled without the mess.",
+    image: "/assets/images/services/flooring.jpg",
+    services: ["Leak repair", "Faucets &amp; fixtures", "Drain clearing", "Water heater service"]
+  },
+  {
+    name: "Decorating",
+    description: "Painting, patching and finishing that makes a room feel new.",
+    image: "/assets/images/services/decorating.jpg",
+    services: ["Interior painting", "Wall repair &amp; patching", "Trim &amp; molding", "Wallpaper",]
+  }
+]
+---
+ 
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we do</div>
+      <h2>home improvements, one trusted team.</h2>
+  <p>
+    From repairs and upgrades to full home improvements, our skilled tradespeople
+    work together to deliver reliable, high-quality results without the hassle of
+    managing multiple contractors.
+  </p>
+    </div>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <!--<div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>-->
+        <img src={trades[0].image} alt={trades[0].name}>
+        <div class="card-content">
+          <h3>{trades[0].name}</h3>
+          <p>{trades[0].description}</p>
+          <ul class="service-list">
+            {trades[0].services.map((item) => (
+              <li set:html={item}/>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <!--<div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>-->
+        <img src={trades[1].image} alt={trades[1].name}>
+        <div class="card-content">
+          <h3>{trades[1].name}</h3>
+          <p>{trades[1].description}</p>
+          <ul class="service-list">
+            {trades[1].services.map((item) => (
+              <li set:html={item}/>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <!-- <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z"/></svg></div>-->
+        <img src={trades[2].image} alt={trades[2].name}>
+        <div class="card-content">
+          <h3>{trades[2].name}</h3>
+          <p>{trades[2].description}</p>
+          <ul class="service-list">
+            {trades[2].services.map((item) => (
+              <li set:html={item}/>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <!--<div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21v-4l13-13 4 4-13 13H3z"/><path d="M14 6l4 4"/></svg>
+        </div>-->
+        <img src={trades[3].image} alt={trades[3].name}>
+        <div class="card-content">
+          <h3>{trades[3].name}</h3>
+          <p>{trades[3].description}</p>
+          <ul class="service-list">
+            {trades[3].services.map((item) => (
+              <li set:html={item}/>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>      

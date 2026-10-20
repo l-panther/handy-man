@@ -1,0 +1,39 @@
+---
+const testimonials = [
+  {
+    quote: "Rewired our kitchen and laid new vinyl flooring in the same week. Everything was labeled, cleaned up, and explained clearly before they left.",
+    name: "Marta Oyelaran",
+    role: "Camden"
+  },
+  {
+    quote: "Found a slow leak two other plumbers missed. Fixed same afternoon and the quote didn't move once the job was underway.",
+    name: "Devon Whitlock",
+    role: "Croydon"
+  },
+  {
+    quote: "Repainted the whole downstairs and patched up years of nail holes. Sharpest cut lines I've seen from any painter we've hired.",
+    name: "Priya Chandrasekar",
+    role: "Stratford"
+  }
+]
+---
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">cLIENT feedback</div>
+      <h2>What our customers say.</h2>
+    </div>
+    <div class="testi-grid">
+
+      {testimonials.map((item) => (
+        <div class="testi-card">
+          <p class="testi-quote">{item.quote}</p>
+          <div class="testi-name">{item.name}</div>
+          <div class="testi-role">{item.role}</div>
+        </div>
+      ))}
+      
+    </div>
+  </div>
+</section>

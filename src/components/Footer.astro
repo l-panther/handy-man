@@ -1,0 +1,39 @@
+---
+import { COMPANY_NAME, COMPANY_TELEPHONE, COMPANY_EMAIL } from '../lib/config';
+---
+
+ <footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <div class="brand-mark">HS</div>
+          <div class="brand-name">{COMPANY_NAME.replace(/\s/g, "")}</div>
+        </div>
+        <p>Licensed handyman crew covering electrical, flooring, plumbing and decorating across the greater metro area.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="#services">Electrical</a>
+        <a href="#services">Flooring</a>
+        <a href="#services">Plumbing</a>
+        <a href="#services">Decorating</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#about">About</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="tel:{COMPANY_TELEPHONE}">{COMPANY_TELEPHONE}</a>
+        <a href="mailto:jobs@fairweatherandsons.example">{COMPANY_EMAIL}</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 {COMPANY_NAME}. All rights reserved.</span>
+      <span class="mono">LICENSE #HC-88214</span>
+    </div>
+  </div>
+</footer>

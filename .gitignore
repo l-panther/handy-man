@@ -1,0 +1,51 @@
+
+# -----------------------------------------
+# ASTRO - GITIGNORE
+# -----------------------------------------
+
+# Dependencies
+node_modules/
+
+# Astro generated files
+dist/
+.astro/
+
+# Build output
+build/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Local backups
+*.bak
+
+# TypeScript
+*.tsbuildinfo
+
+# Testing and coverage
+coverage/
+.nyc_output/
