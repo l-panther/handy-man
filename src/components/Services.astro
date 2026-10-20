@@ -1,27 +1,28 @@
 ---
+import { asset } from '../utils/paths';
 const trades = [
   {
     name: "Electrical",
     description: "Safe, code-compliant work from small repairs to full rewiring.",
-    image: "/assets/images/services/electrical.jpg",
+    image: "{asset('assets/images/services/electrical.jpg')}",
     services: ["Outlets &amp; switches", "Lighting &amp; fixtures", "Panel upgrades", "Fault finding"]
   },
   {
     name: "Plumbing",
     description: "Hardwood, laminate, vinyl and tile, laid flat and finished clean.",
-    image: "/assets/images/services/plumbing.jpg",
+    image: "{asset('assets/images/services/plumbing.jpg')}",
     services: ["Hardwood &amp; laminate", "Vinyl plank &amp; tile", "Subfloor repair", "Refinishing"]
   },
   {
     name: "Flooring",
     description: "Leaks, fittings and fixture swaps handled without the mess.",
-    image: "/assets/images/services/flooring.jpg",
+    image: "{asset('assets/images/services/flooring.jpg')}",",
     services: ["Leak repair", "Faucets &amp; fixtures", "Drain clearing", "Water heater service"]
   },
   {
     name: "Decorating",
     description: "Painting, patching and finishing that makes a room feel new.",
-    image: "/assets/images/services/decorating.jpg",
+    image: "{asset('assets/images/services/decorating.jpg')}",
     services: ["Interior painting", "Wall repair &amp; patching", "Trim &amp; molding", "Wallpaper",]
   }
 ]
