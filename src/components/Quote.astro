@@ -1,6 +1,7 @@
 ---
 import { COMPANY_EMAIL, COMPANY_TELEPHONE, COMPANY_LOCATION } from '../lib/config.js';
 ---
+
 <section id="contact">
   <div class="wrap contact-grid">
     <div>
@@ -65,18 +66,18 @@ import { COMPANY_EMAIL, COMPANY_TELEPHONE, COMPANY_LOCATION } from '../lib/confi
           </div>
         </div>
 
-<div class="form-row">
-  <label for="service">Service needed</label>
-  <select id="service" name="service" required aria-required="true" aria-describedby="service-error">
-    <option value="" disabled selected>Select a service...</option>
-    <option>Electrical</option>
-    <option>Flooring</option>
-    <option>Plumbing</option>
-    <option>Decorating</option>
-    <option>Something else</option>
-  </select>
-  <p id="service-error" class="field-error" role="alert"></p>
-</div>
+        <div class="form-row">
+          <label for="service">Service needed</label>
+          <select id="service" name="service" required aria-required="true" aria-describedby="service-error">
+            <option value="" disabled selected>Select a service...</option>
+            <option>Electrical</option>
+            <option>Flooring</option>
+            <option>Plumbing</option>
+            <option>Decorating</option>
+            <option>Something else</option>
+          </select>
+          <p id="service-error" class="field-error" role="alert"></p>
+        </div>
 
         <div class="form-row">
           <label for="message">Details</label>
