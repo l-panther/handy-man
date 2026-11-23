@@ -1,10 +1,10 @@
-
 export const services = [
   {
     slug: "electrical",
     name: "Electrical",
     description:
       "Safe, compliant electrical work, from small repairs to larger installations.",
+    heroImage: 'assets/images/services/electrical-hero.webp',
     image: "assets/images/services/electrical.jpg",
 
     icon: `<svg width="20" height="20" viewBox="0 0 24 24"
@@ -45,6 +45,45 @@ export const services = [
       }
     ],
 
+    points: [
+      { icon: "shield-check", text: "Safety-focused work" },
+      { icon: "badge-check", text: "Qualified specialists where required" },
+      { icon: "clipboard-check", text: "Clear assessment and recommendations" },
+      { icon: "sparkles", text: "Respectful, tidy workmanship" }
+    ],
+
+
+    steps: [
+      {
+        title: "Assess",
+        description: "We discuss the issue, inspect the existing installation and identify the work required. This helps us understand the problem and determine the safest, most practical approach."
+      },
+      {
+        title: "Explain",
+        description: "We recommend a suitable solution, explain the proposed work and outline the expected costs. Any relevant testing or certification requirements are also discussed before work begins."
+      },
+      {
+        title: "Carry Out",
+        description: "The agreed repairs or installation are completed by appropriately competent tradespeople, with care taken around your property. We focus on safe working practices, reliable results and minimal disruption."
+      },
+      {
+        title: "Test & Handover",
+        description: "The completed work is checked and tested as appropriate to ensure it meets the relevant requirements. We provide any applicable documentation and leave the work area clean and tidy."
+      }
+    ],
+
+
+    serviceItems: [
+      { icon: "plug", title: "Socket replacement" },
+      { icon: "toggle-right", title: "Switch replacement" },
+      { icon: "lightbulb", title: "Ceiling and wall lighting" },
+      { icon: "lamp-desk", title: "Under-cabinet lighting" },
+      { icon: "circuit-board", title: "Consumer unit assessment and upgrades" },
+      { icon: "search-check", title: "Electrical fault finding" },
+      { icon: "zap", title: "Tripping circuit investigation" },
+      { icon: "cable", title: "Additional power points" }
+    ],
+
     approach:
       "We begin by discussing the issue or proposed improvement and assessing the existing installation. Once the work has been identified, we explain the recommended solution, expected disruption and any relevant testing or certification requirements. Safety, communication and a tidy working environment remain priorities throughout.",
 
@@ -72,6 +111,7 @@ export const services = [
     name: "Plumbing",
     description:
       "Leaks, fittings and fixture replacements handled with care and minimal disruption.",
+    heroImage: 'assets/images/services/plumbing-hero.webp',
     image: "assets/images/services/plumbing.jpg",
 
     icon: `<svg width="20" height="20" viewBox="0 0 24 24"
@@ -112,6 +152,43 @@ export const services = [
       }
     ],
 
+    points: [
+      { icon: "droplets", text: "Practical leak solutions" },
+      { icon: "wrench", text: "Careful repairs and replacements" },
+      { icon: "clipboard-check", text: "Clear explanations and estimates" },
+      { icon: "sparkles", text: "Clean and considerate service" }
+    ],
+
+    steps: [
+      {
+        title: "Inspect",
+        description: "We discuss the symptoms and examine the affected pipes, fittings or fixtures to identify the likely cause. A careful inspection helps us determine the most appropriate course of action."
+      },
+      {
+        title: "Recommend",
+        description: "We explain the available repair or replacement options and recommend a practical solution. The expected work, materials and costs are outlined so you know what to expect."
+      },
+      {
+        title: "Repair or Fit",
+        description: "We carry out the agreed repairs or installation with care and attention to detail. Surrounding surfaces and fittings are protected wherever practical to minimise disruption."
+      },
+      {
+        title: "Check & Finish",
+        description: "Accessible connections and fittings are checked for leaks and correct operation once the work is complete. We tidy the work area and leave the space ready for normal use."
+      }
+    ],
+
+    serviceItems: [
+      { icon: "droplets", title: "Visible leak repairs" },
+      { icon: "wrench", title: "Tap repairs and replacements" },
+      { icon: "wrench", title: "Sink and basin fittings" },
+      { icon: "toilet", title: "Toilet repairs and replacements" },
+      { icon: "workflow", title: "Waste pipe and trap repairs" },
+      { icon: "droplets", title: "Shower fittings" },
+      { icon: "cooking-pot", title: "Kitchen plumbing connections" },
+      { icon: "search-check", title: "Slow drain and blockage assessment" }
+    ],
+
     approach:
       "Our process starts with identifying the symptoms and inspecting the affected plumbing. We explain the likely cause, recommend an appropriate solution and carry out the agreed work with care. Connections are checked where applicable, and the work area is left clean and ready for use.",
 
@@ -139,6 +216,7 @@ export const services = [
     name: "Flooring",
     description:
       "Hardwood, laminate, vinyl and tile flooring, installed and finished with care.",
+    heroImage: 'assets/images/services/flooring-hero.webp',
     image: "assets/images/services/flooring.jpg",
 
     icon: `<svg width="20" height="20" viewBox="0 0 24 24"
@@ -182,6 +260,43 @@ export const services = [
       }
     ],
 
+    points: [
+      { icon: "ruler", text: "Accurate measuring and planning" },
+      { icon: "layers", text: "Suitable materials and underlay" },
+      { icon: "hammer", text: "Careful fitting and detailing" },
+      { icon: "sparkles", text: "Clean, consistent finishes" }
+    ],
+
+    steps: [
+      {
+        title: "Survey & Measure",
+        description: "We assess the room, examine the existing flooring and check the condition of the subfloor. Accurate measurements help us plan the installation and identify any preparation needed."
+      },
+      {
+        title: "Plan & Prepare",
+        description: "We agree the flooring material, layout and finishing details before installation begins. The subfloor is prepared as required, with suitable underlay or other supporting materials selected."
+      },
+      {
+        title: "Install",
+        description: "Your chosen flooring is fitted carefully, with attention to alignment, edges and transitions between rooms. We follow relevant manufacturer guidance to achieve a neat and durable finish."
+      },
+      {
+        title: "Finish & Inspect",
+        description: "We complete the trims, thresholds and other finishing details to give the installation a polished appearance. The finished floor is inspected and the work area left clean and tidy."
+      }
+    ],
+
+    serviceItems: [
+      { icon: "panels-top-left", title: "Laminate flooring" },
+      { icon: "layers", title: "Engineered and hardwood flooring" },
+      { icon: "layers", title: "Luxury vinyl plank flooring" },
+      { icon: "grid-2x2", title: "Vinyl and floor tiles" },
+      { icon: "ruler", title: "Subfloor levelling and preparation" },
+      { icon: "hammer", title: "Loose floorboard repairs" },
+      { icon: "door-open", title: "Thresholds and edge trims" },
+      { icon: "brush", title: "Suitable floor refinishing" }
+    ],
+
     approach:
       "We begin by inspecting the existing floor, measuring the space and discussing suitable materials. Preparation is completed before installation, followed by careful fitting, edge detailing and finishing. Our aim is to produce a clean, consistent result that complements the surrounding room.",
 
@@ -209,6 +324,7 @@ export const services = [
     name: "Decorating",
     description:
       "Painting, repairs and finishing touches that refresh and transform your home.",
+    heroImage: 'assets/images/services/painting-hero.webp',
     image: "assets/images/services/decorating.jpg",
 
     icon: `<svg width="20" height="20" viewBox="0 0 24 24"
@@ -248,6 +364,43 @@ export const services = [
         description:
           "Wallpaper can introduce texture, pattern and character to a room. Proper wall preparation, accurate measurements, pattern matching and careful trimming are important for a neat, consistent finish."
       }
+    ],
+
+    points: [
+      { icon: "paint-roller", text: "Careful surface preparation" },
+      { icon: "palette", text: "Suitable paints and finishes" },
+      { icon: "shield-check", text: "Furniture and floor protection" },
+      { icon: "sparkles", text: "Neat edges and tidy handover" }
+    ],
+
+    steps: [
+      {
+        title: "Discuss & Plan",
+        description: "We discuss your preferred colours, finishes and the overall look you want to achieve. Existing surfaces are assessed, and we agree the preparation and access required before work begins."
+      },
+      {
+        title: "Protect & Prepare",
+        description: "Floors, furniture and surrounding areas are protected before decorating starts. Surfaces are cleaned, filled, sanded and primed where necessary to create a sound foundation for the finish."
+      },
+      {
+        title: "Decorate",
+        description: "We carefully apply the chosen paints, finishes or wall coverings to the agreed surfaces. Attention is given to even coverage, clean edges and consistent detailing throughout."
+      },
+      {
+        title: "Inspect & Tidy",
+        description: "We inspect the completed work, check coverage and detailing, and carry out any necessary touch-ups. Protective coverings are removed and the work area is left clean and tidy."
+      }
+    ],
+
+    serviceItems: [
+      { icon: "paint-roller", title: "Interior wall painting" },
+      { icon: "paintbrush", title: "Ceiling painting" },
+      { icon: "wrench", title: "Crack filling and minor wall repairs" },
+      { icon: "paint-bucket", title: "Priming and surface preparation" },
+      { icon: "door-closed", title: "Doors and door frames" },
+      { icon: "ruler", title: "Skirting boards and trim" },
+      { icon: "panels-top-left", title: "Wallpaper hanging" },
+      { icon: "palette", title: "Feature walls and colour changes" }
     ],
 
     approach:
