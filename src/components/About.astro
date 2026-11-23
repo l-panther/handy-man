@@ -6,9 +6,38 @@ import { COMPANY_NAME } from '../lib/config.js';
 <section id="about">
   <div class="wrap about-grid">
 
-    <div class="about-visual">
+   <!-- <div class="about-visual">
         <img src={asset('assets/images/about/about.jpg')} alt="Home improvement">
-    </div>
+    </div>-->
+
+    <div class="about-visual">
+  <div class="about-collage">
+    <img
+      src={asset('assets/images/about/electrical.webp')}
+      alt="Electrical work"
+    />
+
+    <img
+      src={asset('assets/images/about/plumbing.webp')}
+      alt="Plumbing work"
+    />
+
+    <img
+      src={asset('assets/images/about/flooring.webp')}
+      alt="Flooring installation"
+    />
+
+    <img
+      src={asset('assets/images/about/painting.webp')}
+      alt="Interior decorating"
+    />
+
+    <img
+      src={asset('assets/images/about/ceiling.webp')}
+      alt="Completed home improvement"
+    />
+  </div>
+</div>
 
     <div class="about-copy">
 
@@ -74,16 +103,163 @@ import { COMPANY_NAME } from '../lib/config.js';
   align-items: center;
 }
 
-.about-visual {
-  min-width: 0;
+
+/* -------------------------
+   ABOUT IMAGE COLLAGE
+-------------------------- */
+
+.about-collage {
+  /* Easy customisation */
+  --collage-gap: 8px;
+  --collage-border: 1.5px;
+  --collage-border-color: #d1d1d1;
+  --collage-radius: 3px;
+
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--collage-gap);
+  width: 100%;
 }
 
-.about-visual img {
+/* All images */
+.about-collage img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 2px;
+  height: 100%;
+  min-width: 0;
+  object-fit: cover;
+
+  border: var(--collage-border) solid var(--collage-border-color);
+  border-radius: var(--collage-radius);
+
+  box-sizing: border-box;
 }
+
+/* Top row: 3 images */
+.about-collage img:nth-child(1),
+.about-collage img:nth-child(2),
+.about-collage img:nth-child(3) {
+  grid-column: span 2;
+  height: 290px;
+}
+
+/* Bottom row: 2 images */
+.about-collage img:nth-child(4),
+.about-collage img:nth-child(5) {
+  grid-column: span 3;
+  height: 170px;
+}
+
+/* Individual image positioning */
+.about-collage img:nth-child(1) {
+  object-position: 50% 50%;
+}
+
+.about-collage img:nth-child(2) {
+  object-position: 50% 50%;
+}
+
+.about-collage img:nth-child(3) {
+  object-position: 50% 50%;
+}
+
+.about-collage img:nth-child(4) {
+  object-position: 50% 50%;
+}
+
+.about-collage img:nth-child(5) {
+  object-position: 50% 50%;
+}
+
+
+/* -------------------------
+   TABLET
+-------------------------- */
+
+@media (max-width: 991px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-visual {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-copy {
+    width: 100%;
+  }
+}
+
+/* -------------------------
+   MOBILE
+-------------------------- */
+
+@media (max-width: 760px) {
+  .about-collage img:nth-child(-n+3) {
+    height: 210px;
+  }
+
+  .about-collage img:nth-child(n+4) {
+    height: 150px;
+  }
+}
+
+/* -------------------------
+   MOBILE
+-------------------------- */
+
+@media (max-width: 575px) {
+  .about-grid {
+    gap: 30px;
+  }
+
+  .about-copy h2 {
+    font-size: 28px !important;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .about-copy p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .about-copy ul {
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  .about-copy li {
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13.5px;
+  }
+
+  .about-copy li::before {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .about-collage {
+    --collage-gap: 5px;
+  }
+
+  .about-collage img:nth-child(-n+3) {
+    height: 160px;
+  }
+
+  .about-collage img:nth-child(n+4) {
+    height: 120px;
+  }
+}
+
 
 .about-copy {
   min-width: 0;
@@ -140,66 +316,4 @@ import { COMPANY_NAME } from '../lib/config.js';
   font-weight: 700;
 }
 
-/* -------------------------
-   TABLET
--------------------------- */
-
-@media (max-width: 991px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .about-visual {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .about-copy {
-    width: 100%;
-  }
-}
-
-/* -------------------------
-   MOBILE
--------------------------- */
-
-@media (max-width: 575px) {
-  .about-grid {
-    gap: 30px;
-  }
-
-  .about-visual {
-    max-width: 100%;
-  }
-
-  .about-copy h2 {
-    font-size: 28px !important;
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .about-copy p {
-    font-size: 14px;
-    line-height: 1.75;
-  }
-
-  .about-copy ul {
-    margin-top: 24px;
-    gap: 16px;
-  }
-
-  .about-copy li {
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 13.5px;
-  }
-
-  .about-copy li::before {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-  }
-}
 </style>
