@@ -1,6 +1,8 @@
 ---
 import { COMPANY_NAME } from '../lib/config';
+import { asset } from '../utils/paths';
 ---
+
 
 <header class="site-header">
   <div class="toolbar">
@@ -10,10 +12,10 @@ import { COMPANY_NAME } from '../lib/config';
     </div>
 
     <nav class="toolbar-links">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#testimonials">Reviews</a>
-      <a href="#contact">Contact</a>
+      <a href={asset('')}>Home</a>
+      <a href={asset('#about')}>About</a>
+      <a href={asset('#services')}>Services</a>
+      <a href={asset('#contact')}>Contact</a>
     </nav>
 
     <div class="toolbar-phone">
