@@ -3,28 +3,7 @@ import { asset } from '../utils/paths';
 import { COMPANY_NAME } from '../lib/config.js';
 ---
 
-  <!--<section id="about">
-    <div class="wrap about-grid">
-      <div class="about-visual">
-          <img src="{asset('assets/images/about/bg.jpg')} alt="">
-        
-      </div>
-      <div class="about-copy">
-        <span class="eyebrow">Why homeowners call us back</span>
-        <h2 style="font-size:30px;margin-bottom:16px;">A small crew that treats your home like the job matters.</h2>
-        <p>{ COMPANY_NAME} started as a two-person outfit fixing up rental properties, and grew because clients kept referring us to neighbors. We still work the same way: show up on time, explain the problem plainly, and leave the space cleaner than we found it.</p>
-        <ul>
-          <li>Licensed, insured and background-checked crew</li>
-          <li>Upfront, itemized quotes before any work starts</li>
-          <li>Dust sheets and clean-up included on every job</li>
-          <li>12-month workmanship guarantee</li>
-        </ul>
-      </div>
-    </div>
-  </section>-->
-
-
-  <section id="about">
+<section id="about">
   <div class="wrap about-grid">
 
     <div class="about-visual">
@@ -73,3 +52,35 @@ import { COMPANY_NAME } from '../lib/config.js';
   </div>
 </section>
 
+
+<style>
+  /* ---------- About ---------- */
+#about{background: var(--text);}
+#about h2{color: var(--bg);}
+.about-grid{
+  display:grid;grid-template-columns:0.9fr 1.1fr;
+  gap:60px;align-items:center;
+}
+.about-visual img{
+  border-radius:2px;
+  width: 100%
+}
+.about-metric{
+  background:var(--surface);padding:22px 18px;
+}
+.about-metric .num{font-family:'Space Grotesk',sans-serif;font-size:28px;color:var(--accent);font-weight:700;}
+.about-metric .label{font-size:11.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;}
+.about-copy p{color:var(--card);font-size:15px;margin-bottom:16px;}
+.about-copy ul{margin-top:20px;display:flex;flex-direction:column;gap:12px;}
+.about-copy li{
+  font-size:14px;color:var(--card);
+  display:flex;align-items:center;gap:10px;;
+}
+.about-copy li span { padding-left: 20px;}
+.about-copy li::before{
+  content:'✓';color:var(--accent);font-weight:700;
+  width:35px;height:35px;border:1px solid var(--accent);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+}
+
+</style>
