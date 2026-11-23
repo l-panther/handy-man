@@ -72,9 +72,11 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:bold;line-height:1.12;lett
 }
 .brand-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;}
 .brand-name span{color:var(--accent);}
-
-.toolbar-links{
-  display:flex;align-items:center;gap:30px;
+.toolbar-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
 }
 .toolbar-links a{
   font-size:13.5px;color:var(--text-dim);
@@ -88,6 +90,7 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:bold;line-height:1.12;lett
   padding:9px 18px;
   border-radius:var(--radius);
   font-size:13px;font-weight:600;
+  margin-left: 32px;
 }
 .toolbar-cta:hover{opacity:0.88;}
 .toolbar-phone{
