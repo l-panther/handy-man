@@ -1,5 +1,7 @@
+
 ---
 import { services } from '../../data/services';
+import { asset } from '../../utils/paths';
 
 export function getStaticPaths() {
   return services.map((service) => ({
@@ -7,6 +9,7 @@ export function getStaticPaths() {
     props: { service }
   }));
 }
+
 const { service } = Astro.props;
 
 const homeUrl = import.meta.env.BASE_URL;
@@ -14,32 +17,243 @@ const servicesUrl = `${homeUrl}#services`;
 ---
 
 <!-- HERO -->
-    <section class="service-hero">
-      <div class="wrap">
+<section class="service-hero">
+  <div class="wrap">
 
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <ol>
-            <li>
-              <a href={homeUrl}>Home</a>
-            </li>
-            <li>
-              <a href={servicesUrl}>Services</a>
-            </li>
-            <li aria-current="page">
-              {service.name}
-            </li>
-          </ol>
-        </nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href={homeUrl}>Home</a></li>
+        <li><a href={servicesUrl}>Services</a></li>
+        <li aria-current="page">{service.name}</li>
+      </ol>
+    </nav>
 
-        <div class="service-hero-content">
-          <span class="service-eyebrow">
-            Our Services
-          </span>
+    <div class="service-hero-grid">
 
-          <h1>{service.name} Services</h1>
+      <!-- LEFT: CONTENT -->
+      <div class="service-hero-content">
 
-          <p>{service.description}</p>
-        </div>
+        <span class="service-eyebrow">
+          Our Services
+        </span>
+
+        <h1>{service.name} Services</h1>
+
+        <p>{service.description}</p>
+
+        <a href={`${homeUrl}#contact`} class="service-hero-cta">
+          Request a Quote
+          <span aria-hidden="true">↗</span>
+        </a>
 
       </div>
-    </section>
+
+      <!-- RIGHT: IMAGE -->
+      <div class="service-hero-visual">
+        <img
+          src={asset(service.heroImage)}
+          alt={`${service.name} services`}
+        />
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+
+/* -------------------------
+   SERVICE HERO
+-------------------------- */
+
+.service-hero {
+  background: #15191e;
+  padding: 30px 0 65px;
+}
+
+/* Breadcrumbs */
+
+.breadcrumbs {
+  margin-bottom: 55px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbs li {
+  font-size: 12px;
+  color: #b4bac2;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 10px;
+  color: #69717b;
+}
+
+.breadcrumbs a {
+  color: #b4bac2;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent);
+}
+
+/* Split layout */
+
+.service-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.service-hero-content {
+  min-width: 0;
+}
+
+.service-eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.service-hero-content h1 {
+  margin: 0 0 20px;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.service-hero-content p {
+  max-width: 500px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #b4bac2;
+}
+
+/* CTA */
+
+.service-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+
+  padding: 13px 20px;
+  background: var(--accent);
+  color: #15191e;
+
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.service-hero-cta:hover {
+  background: #ffc247;
+  transform: translateY(-2px);
+}
+
+.service-hero-cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+.service-hero-cta span {
+  font-size: 18px;
+}
+
+/* Image */
+
+.service-hero-visual {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.service-hero-visual img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+/* -------------------------
+   TABLET
+-------------------------- */
+
+@media (max-width: 980px) {
+  .service-hero-grid {
+    gap: 35px;
+  }
+
+  .service-hero-visual img {
+    height: 290px;
+  }
+}
+
+/* -------------------------
+   MOBILE
+-------------------------- */
+
+@media (max-width: 760px) {
+  .service-hero {
+    padding: 25px 0 45px;
+  }
+
+  .breadcrumbs {
+    margin-bottom: 35px;
+  }
+
+  .service-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+  }
+
+  .service-hero-content h1 {
+    font-size: 32px;
+  }
+
+  .service-hero-content p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .service-hero-visual img {
+    height: 240px;
+  }
+}
+
+@media (max-width: 400px) {
+  .service-hero-content h1 {
+    font-size: 28px;
+  }
+
+  .service-hero-visual img {
+    height: 200px;
+  }
+}
+
+</style>
