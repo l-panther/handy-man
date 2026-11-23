@@ -1,0 +1,40 @@
+---
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+const { service } = Astro.props;
+
+const homeUrl = import.meta.env.BASE_URL;
+const servicesUrl = `${homeUrl}#services`;
+---
+
+<!-- FAQ -->
+<section class="service-faq">
+  <div class="wrap">
+
+    <div class="service-section-heading">
+      <span class="service-eyebrow">
+        Helpful Information
+      </span>
+
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="service-faq-list">
+      {service.faqs.map((faq) => (
+        <details class="service-faq-item">
+          <summary>{faq.question}</summary>
+          <div class="service-faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

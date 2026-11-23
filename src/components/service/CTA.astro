@@ -1,0 +1,41 @@
+---
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+const { service } = Astro.props;
+
+const homeUrl = import.meta.env.BASE_URL;
+const servicesUrl = `${homeUrl}#services`;
+const contactUrl = `${homeUrl}#contact`;
+---
+
+<!-- CTA -->
+<section class="service-cta">
+  <div class="wrap">
+    <div class="service-cta-content">
+
+      <span class="service-eyebrow">
+        Let's Get Started
+      </span>
+
+      <h2>Have a Project in Mind?</h2>
+
+      <p>
+        Whether you need a small repair or a
+        larger home improvement, get in touch
+        to discuss your requirements.
+      </p>
+
+      <a href={contactUrl} class="service-btn service-btn-light">
+        Request a Free Quote
+        <span aria-hidden="true">↗</span>
+      </a>
+
+    </div>
+  </div>
+</section>

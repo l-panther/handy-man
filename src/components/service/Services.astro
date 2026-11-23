@@ -1,0 +1,48 @@
+---
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+const { service } = Astro.props;
+
+const homeUrl = import.meta.env.BASE_URL;
+const servicesUrl = `${homeUrl}#services`;
+---
+
+<!-- SERVICE DETAILS -->
+<section class="service-details">
+  <div class="wrap">
+
+    <div class="service-section-heading">
+      <span class="service-eyebrow">
+        Our Expertise
+      </span>
+
+      <h2>What We Can Help With</h2>
+
+      <p>
+        Explore the range of services available
+        for your home improvement project.
+      </p>
+    </div>
+
+    <div class="service-detail-grid">
+      {service.details.map((item, index) => (
+        <article class="service-detail-card">
+          <span class="service-detail-number">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+
+          <h3>{item.title}</h3>
+
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
