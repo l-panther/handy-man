@@ -1,3 +1,4 @@
+
 ---
 import { services } from '../../data/services';
 
@@ -7,42 +8,169 @@ export function getStaticPaths() {
     props: { service }
   }));
 }
-const { service } = Astro.props;
 
-const homeUrl = import.meta.env.BASE_URL;
-const servicesUrl = `${homeUrl}#services`;
+const { service } = Astro.props;
 ---
 
-<!-- SERVICE DETAILS -->
-<section class="service-details">
+<!-- SERVICES WE PROVIDE -->
+<section class="service-approach" id="service-offerings">
   <div class="wrap">
 
-    <div class="service-section-heading">
+    <div class="service-approach-content">
+
       <span class="service-eyebrow">
         Our Expertise
       </span>
 
-      <h2>What We Can Help With</h2>
+      <h2>{service.name} Services We Provide</h2>
 
       <p>
-        Explore the range of services available
-        for your home improvement project.
+        Explore the individual services available to help
+        maintain, repair and improve your home.
       </p>
+
     </div>
 
-    <div class="service-detail-grid">
-      {service.details.map((item, index) => (
-        <article class="service-detail-card">
-          <span class="service-detail-number">
-            {String(index + 1).padStart(2, '0')}
-          </span>
+    <div class="service-offerings-grid">
+      {service.serviceItems.map((item) => (
+        <div class="service-offering">
 
-          <h3>{item.title}</h3>
+          <div class="service-offering-icon">
+            <i data-lucide={item.icon} aria-hidden="true"></i>
+          </div>
 
-          <p>{item.description}</p>
-        </article>
+          <span>{item.title}</span>
+
+        </div>
       ))}
     </div>
 
   </div>
 </section>
+
+
+<style>
+
+/* -------------------------
+   SERVICES WE PROVIDE
+-------------------------- */
+
+.service-approach {
+  padding: 80px 0;
+  background: var(--surface);
+}
+
+.service-approach-content {
+  max-width: 650px;
+  margin-bottom: 35px;
+}
+
+.service-approach-content h2 {
+  margin: 0 0 16px;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
+  color: var(--accent);
+}
+
+.service-approach-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+
+/* Grid */
+
+.service-offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Individual services */
+
+.service-offering {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 20px 18px;
+  min-width: 0;
+
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.service-offering:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.service-offering-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(242, 169, 0, 0.12);
+  border-radius: 5px;
+  color: var(--accent);
+}
+
+.service-offering-icon svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.8;
+}
+
+.service-offering span {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+/* -------------------------
+   TABLET
+-------------------------- */
+
+@media (max-width: 980px) {
+  .service-offerings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* -------------------------
+   MOBILE
+-------------------------- */
+
+@media (max-width: 760px) {
+  .service-approach {
+    padding: 55px 0;
+  }
+
+  .service-approach-content {
+    margin-bottom: 28px;
+  }
+
+  .service-approach-content p {
+    font-size: 14px;
+  }
+
+  .service-offerings-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .service-offering {
+    padding: 16px;
+  }
+}
+</style>
