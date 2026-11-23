@@ -1,0 +1,37 @@
+---
+import '../../../public/assets/css/service-page.css';
+import Layout from '../../layouts/Layout.astro';
+import { services } from '../../data/services';
+import { asset } from '../../utils/paths';
+
+import Hero from '../../components/service/Hero.astro';
+import Introduction from '../../components/service/Introduction.astro';
+import Services from '../../components/service/Services.astro';
+import Approach from '../../components/service/Approach.astro';
+import FAQ from '../../components/service/FAQ.astro';
+import CTA from '../../components/service/CTA.astro';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+
+const { service } = Astro.props;
+
+const homeUrl = import.meta.env.BASE_URL;
+const servicesUrl = `${homeUrl}#services`;
+const contactUrl = `${homeUrl}#contact`;
+---
+
+<Layout title={`${service.name} Services`}>
+  <main class="service-page">
+    <Hero service={service}/>
+    <Introduction service={service}/>
+    <Services service={service}/>
+    <Approach service={service}/>
+    <FAQ service={service}/>
+    <CTA service={service}/>
+  </main>
+</Layout>
