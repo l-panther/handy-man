@@ -177,7 +177,9 @@ section{padding:88px 0;}
   .mobile-panel{display:flex;}
   .wrap{padding:0 20px;}
   .toolbar{padding:14px 20px;}
+  .toolbar-cta {
+    display: none;
+  }
   section{padding:60px 0;}
   .section-head h2{font-size:2rem;}
 }
-
