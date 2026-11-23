@@ -1,92 +1,185 @@
 ---
 import { asset } from '../utils/paths';
-
-const trades = [
-  {
-    name: "Electrical",
-    description: "Safe, code-compliant work from small repairs to full rewiring.",
-    image: asset('assets/images/services/electrical.jpg'),
-    icon: `<svg width="20" height="20" viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M13 2 3 14h7l-1 8 10-12h-7z"/>
-    </svg>`,
-    services: ["Outlets &amp; switches", "Lighting &amp; fixtures", "Panel upgrades", "Fault finding"]
-  },
-  {
-    name: "Plumbing",
-    description: "Leaks, fittings and fixture swaps handled without the mess.",
-    image: asset('assets/images/services/plumbing.jpg'),
-    icon: `<svg width="20" height="20" viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M12 2s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z"/>
-    </svg>`,
-    services: ["Leak repair", "Faucets &amp; fixtures", "Drain clearing", "Water heater service"]
-  },
-  {
-    name: "Flooring",
-    description: "Hardwood, laminate, vinyl and tile, laid flat and finished clean.",
-    image: asset('assets/images/services/flooring.jpg'),
-    icon: `<svg width="20" height="20" viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" stroke-width="2">
-      <rect x="3" y="3" width="7" height="7"/>
-      <rect x="14" y="3" width="7" height="7"/>
-      <rect x="3" y="14" width="7" height="7"/>
-      <rect x="14" y="14" width="7" height="7"/>
-    </svg>`,
-    services: ["Hardwood &amp; laminate", "Vinyl plank &amp; tile", "Subfloor repair", "Refinishing"]
-  },
-  {
-    name: "Decorating",
-    description: "Painting, patching and finishing that makes a room feel new.",
-    image: asset('assets/images/services/decorating.jpg'),
-    icon: `<svg width="20" height="20" viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M3 21v-4l13-13 4 4-13 13H3z"/>
-      <path d="M14 6l4 4"/>
-    </svg>`,
-    services: ["Interior painting", "Wall repair &amp; patching", "Trim &amp; molding", "Wallpaper"]
-  }
-];
+import { services as trades } from '../data/services';
 ---
 
 <section id="services">
   <div class="wrap">
+
     <div class="section-head">
       <div class="eyebrow">What we do</div>
-      <h2>home improvements, one trusted team.</h2>
+
+      <h2>Home improvements, one trusted team.</h2>
+
       <p>
-        From repairs and upgrades to full home improvements, our skilled tradespeople
-        work together to deliver reliable, high-quality results without the hassle of
-        managing multiple contractors.
+        From repairs and upgrades to full home improvements,
+        our skilled tradespeople work together to deliver
+        reliable, high-quality results without the hassle
+        of managing multiple contractors.
       </p>
     </div>
-    
-<div class="service-grid">
-  {trades.map((trade) => (
-    <div class="service-card">
 
-      <!-- div class="service-icon" set:html={trade.icon} />-->
+    <div class="service-grid">
+      {trades.map((trade) => (
+        <article class="service-card">
 
-      <img
-        src={trade.image}
-        alt={trade.name}
-        loading="lazy"
-      />
+          <img
+            src={asset(trade.image)}
+            alt={`${trade.name} services`}
+            loading="lazy"
+          />
 
-      <div class="card-content">
-        <h3>{trade.name}</h3>
-        <p>{trade.description}</p>
+          <div class="card-content">
 
-        <ul class="service-list">
-          {trade.services.map((item) => (
-            <li set:html={item} />
-          ))}
-        </ul>
-      </div>
+            <h3>{trade.name}</h3>
 
+            <p>{trade.description}</p>
+
+            <ul class="service-list">
+              {trade.services.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+
+            <a
+              href={asset(`services/${trade.slug}/`)}
+              class="service-link"
+              aria-label={`Explore ${trade.name} services`}
+            >
+              Explore Service
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </div>
+
+        </article>
+      ))}
     </div>
-  ))}
-</div>
 
   </div>
-</section>      
+</section>
+
+<style>
+
+/* ---------- Services ---------- */
+#services{border-bottom:1px solid var(--accent-dim);background:var(--accent);}
+#services p {color: var(--surface);}
+#services .eyebrow { color: var(--card);}
+#services .eyebrow::before{background:var(--card);}
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:1px;
+  background:var(--accent);
+  border:1px solid var(--text-dim);
+  border-radius:8px;
+  overflow:hidden;
+}
+.service-card{
+  background:var(--text);
+  transition:background .15s ease;
+}
+.card-content{
+  padding:30px 26px;
+}
+.service-card:hover{background:#eaeaea;}
+.service-icon{
+  width:42px;height:42px;
+  border-radius:var(--radius);
+  background:rgba(240,162,2,0.12);
+  color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+.service-card h3{font-size:18px;font-weight:bold;margin:10px 0; color: var(--surface);}
+.service-card p{font-size:13.5px;color:var(--text-dim);margin-bottom:16px;}
+.service-list{display:flex;flex-direction:column;gap:7px;}
+.service-list li{
+  font-size:12.5px;color:var(--text-faint);
+  display:flex;align-items:center;gap:8px;
+}
+.service-list li::before{
+  content:'';width:5px;height:5px;background:var(--accent);border-radius:50%;flex-shrink:0;
+}
+
+/* SERVICE CARD LAYOUT */
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card .card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Push link to the bottom */
+
+.service-card .service-list {
+  margin-bottom: 24px;
+}
+
+/* Explore service link */
+
+.service-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: auto;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+
+  color: #242424;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.service-link span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+  background: #f2a900;
+  color: #242424;
+
+  font-size: 1.1rem;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.service-link:hover {
+  color: #c47d00;
+}
+
+.service-link:hover span {
+  background: #ffc247;
+  transform: translate(2px, -2px);
+}
+
+.service-link:focus-visible {
+  outline: 2px solid #242424;
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px){
+  .service-grid{grid-template-columns:1fr;}
+}
+
+@media (max-width: 980px){
+  .service-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
