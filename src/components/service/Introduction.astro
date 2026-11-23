@@ -1,16 +1,17 @@
+
 ---
 import { services } from '../../data/services';
-import { asset } from '../../utils/paths';
+
 export function getStaticPaths() {
   return services.map((service) => ({
     params: { slug: service.slug },
     props: { service }
   }));
 }
+
 const { service } = Astro.props;
 
 const homeUrl = import.meta.env.BASE_URL;
-const servicesUrl = `${homeUrl}#services`;
 const contactUrl = `${homeUrl}#contact`;
 ---
 
@@ -18,13 +19,28 @@ const contactUrl = `${homeUrl}#contact`;
 <section class="service-intro">
   <div class="wrap service-intro-grid">
 
-    <div class="service-intro-image">
-      <img
-        src={asset(service.image)}
-        alt={`${service.name} services`}
-      />
+    <!-- LEFT: KEY POINTS -->
+    <div class="service-intro-points">
+      <span class="points-eyebrow">
+        Why Choose Our {service.name} Services
+      </span>
+
+      <div class="points-list">
+        {service.points.map((point) => (
+          <div class="point-item">
+
+            <div class="point-icon">
+              <i data-lucide={point.icon} aria-hidden="true"></i>
+            </div>
+
+            <span>{point.text}</span>
+
+          </div>
+        ))}
+      </div>
     </div>
 
+    <!-- RIGHT: INTRODUCTION -->
     <div class="service-intro-content">
       <span class="service-eyebrow">
         What We Do
@@ -42,3 +58,144 @@ const contactUrl = `${homeUrl}#contact`;
 
   </div>
 </section>
+
+<style>
+
+/* -------------------------
+   SERVICE INTRODUCTION
+-------------------------- */
+
+.service-intro {
+  background: var(--surface);
+  padding: 80px 0;
+}
+
+.service-intro-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+/* LEFT: POINTS */
+
+.service-intro-points {
+  min-width: 0;
+}
+
+.points-eyebrow {
+  display: block;
+  margin-bottom: 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8fbde5;
+}
+
+.points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.point-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+}
+
+.point-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+  background: rgba(242, 169, 0, 0.12);
+  color: var(--accent);
+}
+
+.point-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.8;
+}
+
+.point-item span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+/* RIGHT: CONTENT */
+
+.service-intro-content {
+  min-width: 0;
+}
+
+.service-intro-content h2 {
+  margin: 0 0 20px;
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.service-intro-content p {
+  margin-bottom: 26px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+
+/* -------------------------
+   TABLET
+-------------------------- */
+
+@media (max-width: 980px) {
+  .service-intro-grid {
+    gap: 35px;
+  }
+}
+
+/* -------------------------
+   MOBILE
+-------------------------- */
+
+@media (max-width: 760px) {
+  .service-intro {
+    padding: 55px 0;
+  }
+
+  .service-intro-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+  }
+
+  .point-item {
+    padding: 14px 16px;
+  }
+
+  .point-item span {
+    font-size: 13px;
+  }
+
+  .service-intro-content h2 {
+    font-size: 26px;
+  }
+
+  .service-intro-content p {
+    font-size: 14px;
+  }
+}
+</style>
