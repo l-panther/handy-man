@@ -1,0 +1,460 @@
+
+/* ======================================
+   SERVICE PAGE
+====================================== */
+
+.service-page {
+  --service-navy: #15191e;
+  --service-blue: #2f80c5;
+  --service-ink: #202832;
+  --service-muted: #617080;
+  --service-light: #f5f7fa;
+  --service-border: #e2e7ec;
+
+  color: var(--service-ink);
+  background: #fff;
+}
+
+.service-page *,
+.service-page *::before,
+.service-page *::after {
+  box-sizing: border-box;
+}
+
+.service-page .wrap {
+  width: min(100% - 48px, 1200px);
+  margin-inline: auto;
+}
+
+/* ======================================
+   HERO
+====================================== */
+
+.service-hero {
+  background: var(--service-navy);
+  color: #fff;
+  padding: 45px 0 90px;
+}
+
+/* Breadcrumb */
+
+.breadcrumbs {
+  margin-bottom: 75px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,.6);
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 10px;
+  color: rgba(255,255,255,.35);
+}
+
+.breadcrumbs a {
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #fff;
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Hero content */
+
+.service-hero-content {
+  max-width: 800px;
+}
+
+.service-eyebrow {
+  display: inline-block;
+  color: var(--service-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+
+.service-hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  margin: 0 0 22px;
+  color: #fff;
+}
+
+.service-hero-content > p {
+  max-width: 680px;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,.75);
+  margin: 0;
+}
+
+/* ======================================
+   INTRODUCTION
+====================================== */
+
+.service-intro {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.service-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.service-intro-image {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.service-intro-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.service-intro-content h2,
+.service-section-heading h2,
+.service-approach h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0 0 24px;
+}
+
+.service-intro-content p,
+.service-approach p {
+  color: var(--service-muted);
+  font-size: 1rem;
+  line-height: 1.85;
+  margin: 0 0 30px;
+}
+
+/* Buttons */
+
+.service-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 14px 24px;
+  background: var(--service-blue);
+  border: 1px solid var(--service-blue);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .2s ease,
+              transform .2s ease;
+}
+
+.service-btn:hover {
+  background: #2369a4;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ======================================
+   SERVICE DETAIL CARDS
+====================================== */
+
+.service-details {
+  background: var(--service-light);
+  padding: 100px 0;
+}
+
+.service-section-heading {
+  max-width: 720px;
+  margin-bottom: 45px;
+}
+
+.service-section-heading > p {
+  color: var(--service-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.service-detail-card {
+  background: #fff;
+  border: 1px solid var(--service-border);
+  border-radius: 10px;
+  padding: 35px;
+  transition: transform .2s ease,
+              box-shadow .2s ease;
+}
+
+.service-detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+}
+
+.service-detail-number {
+  display: block;
+  color: var(--service-blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.service-detail-card h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  margin: 0 0 14px;
+}
+
+.service-detail-card p {
+  color: var(--service-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ======================================
+   APPROACH
+====================================== */
+
+.service-approach {
+  background: #fff;
+  padding: 100px 0;
+}
+
+.service-approach-content {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.service-approach p {
+  margin-bottom: 0;
+}
+
+/* ======================================
+   FAQ
+====================================== */
+
+.service-faq {
+  padding: 100px 0;
+  background: var(--service-light);
+}
+
+.service-faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.service-faq-item {
+  background: #fff;
+  border: 1px solid var(--service-border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.service-faq-item summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  padding: 22px 55px 22px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.service-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--service-blue);
+}
+
+.service-faq-item[open] summary::after {
+  content: "−";
+}
+
+.service-faq-answer {
+  padding: 0 25px 22px;
+}
+
+.service-faq-answer p {
+  color: var(--service-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ======================================
+   CTA
+====================================== */
+
+.service-cta {
+  background: var(--service-navy);
+  padding: 90px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.service-cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.service-cta h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 20px;
+  color: #fff;
+}
+
+.service-cta p {
+  color: rgba(255,255,255,.75);
+  line-height: 1.8;
+  margin: 0 0 30px;
+}
+
+.service-btn-light {
+  background: #fff;
+  border-color: #fff;
+  color: var(--service-navy);
+}
+
+.service-btn-light:hover {
+  background: #edf2f7;
+  color: var(--service-navy);
+}
+
+/* ======================================
+   TABLET
+====================================== */
+
+@media (max-width: 900px) {
+  .service-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .service-intro-image img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .service-intro,
+  .service-details,
+  .service-approach,
+  .service-faq {
+    padding: 75px 0;
+  }
+}
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width: 600px) {
+  .service-page .wrap {
+    width: min(100% - 36px, 1200px);
+  }
+
+  .service-hero {
+    padding: 30px 0 65px;
+  }
+
+  .breadcrumbs {
+    margin-bottom: 50px;
+  }
+
+  .breadcrumbs li {
+    font-size: 0.78rem;
+  }
+
+  .service-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .service-hero-content > p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .service-intro,
+  .service-details,
+  .service-approach,
+  .service-faq {
+    padding: 60px 0;
+  }
+
+  .service-intro-grid {
+    gap: 30px;
+  }
+
+  .service-intro-image img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .service-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-detail-card {
+    padding: 25px;
+  }
+
+  .service-section-heading {
+    margin-bottom: 30px;
+  }
+
+  .service-intro-content p,
+  .service-detail-card p,
+  .service-approach p,
+  .service-faq-answer p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .service-faq-item summary {
+    font-size: 0.9rem;
+    padding: 20px 50px 20px 20px;
+  }
+
+  .service-cta {
+    padding: 70px 0;
+  }
+}
